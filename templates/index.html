@@ -37,9 +37,6 @@
               <option value="logo.svg" {% if selected_image == 'logo.svg' %}selected{% endif %}>Выбери мем</option>
               <option value="meme_1.jpg" {% if selected_image == 'meme_1.jpg' %}selected{% endif %}>Девочка и пожар</option>
               <option value="meme_2.jpg" {% if selected_image == 'meme_2.jpg' %}selected{% endif %}>Две кнопки</option>
-              <!--Задание №1. Добавь сюда новые мемы -->
-
-
             </select>
           </li>
           <li class="form-list_item">
@@ -55,9 +52,8 @@
             <select name="color-selector" id="color-selector">
               <option value="white" {% if selected_color == 'white' %}selected{% endif %}>Белый</option>
               <option value="black" {% if selected_color == 'black' %}selected{% endif %}>Черный</option>
-              <!--Доп.Задание №1. Добавь сюда новые цвета -->
               <option value="pink" {% if selected_color == 'pink' %}selected{% endif %}>Розовый</option>
-
+              <option value="yellow" {% if selected_color == 'yellow' %}selected{% endif %}>Жёлтый</option>
             </select>
           </li>
           <li class="form-list_item">
@@ -73,15 +69,12 @@
       </form>
     </div>
     <div class="meme-block" id="memeBlock">
-      
-      <p class="text_top" style="color: {{selected_color}}">
+      <p class="text_top" style="color: {{selected_color}}; top: {{text_top_y}}">
         {{text_top}}
       </p>
-
       <img class="meme" src="{{ url_for('serve_images', path=selected_image) }}" alt="{{ selected_image }}">
-
-      <p class="text_bottom" style="color: {{selected_color}}">
-        <!-- Задание №2. Помещаем переменную с текстом -->
+      <p class="text_bottom" style="color: {{selected_color}}; bottom: {{text_bottom_y}}">
+        {{text_bottom}}
       </p>
     </div>
     {% endblock %}
